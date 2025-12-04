@@ -1,9 +1,16 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Date;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        Directory StarterDir = new Directory("Starter", 0, new Date(), new Date(), null);
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the File System Simulator!");
+        System.out.print("");
+        String fileName = scanner.nextLine();
     }
 }
