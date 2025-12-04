@@ -24,7 +24,6 @@ public abstract class Information implements Comparable<Information> {
         return this.name.compareTo(other.name);
     }
 
-
     @Override
     public String toString() {
         return "Information{" +
