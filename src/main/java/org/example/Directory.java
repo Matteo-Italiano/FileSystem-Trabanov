@@ -20,7 +20,7 @@ public class Directory extends Information {
                 throw new Exception("File with the same name already exists.");
             }
         }
-        File newFile = new File(name, new Date(), null, this);
+        File newFile = new File(name, Math.random(), new Date(), new Date(), null, null);
         files.add(newFile);
     }
 
@@ -33,7 +33,7 @@ public class Directory extends Information {
         files.sort(Information::compareTo);
     }
 
-    public void removeDirectory(String name, float size){
+    public void removeDirectory(String name){
         directories.removeIf(directory -> directory.getName().equals(name));
     }
 

@@ -114,7 +114,7 @@ public class Main {
                         break;
                     }
                     String targetDirectoryName = parts[1];
-                    currentDirectory.removeDirectory(targetDirectoryName, 0);
+                    currentDirectory.removeDirectory(targetDirectoryName);
                     System.out.println("Directory '" + targetDirectoryName + "' removed successfully. \n");
                     break;
                 case "sort":
