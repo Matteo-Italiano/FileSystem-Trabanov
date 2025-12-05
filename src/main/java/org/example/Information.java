@@ -4,25 +4,26 @@ import java.util.Date;
 
 public abstract class Information implements Comparable<Information> {
     private String name;
-    private float size;
+    private double size;
     private Date createdAt;
     private Date modifiedAt;
     private Directory parentDirectory;
-    private boolean isFavorite;
 
-    public Information(String name, float size, Date createdAt, Date modifiedAt, Directory parentDirectory) {
+    public Information(String name, double size, Date createdAt, Date modifiedAt, Directory parentDirectory) {
         this.name = name;
         this.size = size;
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
         this.parentDirectory = parentDirectory;
-        this.isFavorite = false;
     }
 
     @Override
     public int compareTo(Information other) {
-        return this.name.compareTo(other.name);
+        if(this.getSize() == other.getSize()) return 0;
+        else if(this.getSize() < other.getSize()) return -1;
+        else return 1;
     }
+
 
     @Override
     public String toString() {
@@ -32,16 +33,9 @@ public abstract class Information implements Comparable<Information> {
                 ", createdAt=" + createdAt +
                 ", modifiedAt=" + modifiedAt +
                 ", parentDirectory=" + (parentDirectory != null ? parentDirectory.getName() : "null") +
-                ", isFavorite=" + isFavorite +
                 '}';
     }
 
-    public boolean isFavorite() {
-        return isFavorite;
-    }
-    public void setFavorite(boolean favorite) {
-        isFavorite = favorite;
-    }
     public Directory getParentDirectory() {
         return parentDirectory;
     }
@@ -60,7 +54,7 @@ public abstract class Information implements Comparable<Information> {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
-    public float getSize() {
+    public double getSize() {
         return size;
     }
     public void setSize(float size) {
